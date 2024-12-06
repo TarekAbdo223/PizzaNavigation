@@ -2,10 +2,13 @@ import React from "react";
 import { MEALS } from "../data/dummy-data";
 import { StyleSheet, Text, View } from "react-native";
 
-const MealsOverViewScreen = () => {
+const MealsOverViewScreen = ({ route }) => {
+  // this route.params will give us the object the we defined navigation.navigate("MealsOverview"
+  const catId = route.params.categoryId;
+
   return (
     <View style={styles.contianer}>
-      <Text>Meals Screen</Text>
+      <Text>Meals Screen - {catId}</Text>
     </View>
   );
 };
