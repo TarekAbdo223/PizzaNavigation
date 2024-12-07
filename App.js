@@ -21,20 +21,29 @@ export default function App() {
             //   fontWeight: "bold",
             // },
             cardStyle: { backgroundColor: "#3f2f25" },
-            headerBackTitle: "Back",
+            // headerBackTitle: "Back",
           }}
         >
           <Stack.Screen
             name="MealsCategories"
             component={CategoriesScreen}
             options={{
-              title: "Meal Categories",
+              title: "All Categories",
 
               // headerTransparent: true,
               // headerBlurEffect: "dark",
             }}
           />
-          <Stack.Screen name="MealsOverview" component={MealsOverViewScreen} />
+          <Stack.Screen
+            name="MealsOverview"
+            component={MealsOverViewScreen}
+            // options={({ route, navigation }) => {
+            //   const catId = route.params.categoryId;
+            //   return {
+            //     title: catId,
+            //   };
+            // }}
+          />
         </Stack.Navigator>
       </NavigationContainer>
     </>

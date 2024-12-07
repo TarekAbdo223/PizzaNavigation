@@ -1,17 +1,26 @@
-import React from "react";
-import { MEALS } from "../data/dummy-data";
+import React, { useEffect } from "react";
+import { MEALS, CATEGORIES } from "../data/dummy-data";
 import { FlatList, StyleSheet, Text, View } from "react-native";
 import MealItem from "../components/MealItem";
 
-const MealsOverViewScreen = ({ route }) => {
+const MealsOverViewScreen = ({ route, navigation }) => {
   // this route.params will give us the object the we defined navigation.navigate("MealsOverview"
   const catId = route.params.categoryId;
-  console.log(catId, "CATID");
+  //   console.log(catId, "CATID");
 
   const displayedMeals = MEALS.filter((mealItem) => {
     return mealItem.categoryIds.indexOf(catId) >= 0; // this means we have a match
   });
-  console.log(displayedMeals);
+
+  useEffect(() => {
+    const categoryTitle = CATEGORIES.find(
+      (category) => category.id === catId
+    ).title;
+
+    navigation.setOptions({
+      title: categoryTitle,
+    });
+  }, []);
 
   function renderMealItem(itemData) {
     const item = itemData.item;
