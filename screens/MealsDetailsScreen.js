@@ -14,6 +14,8 @@ import List from "../components/MealDetail/List";
 import IconButton from "../components/IconButton";
 
 const MealsDetailsScreen = ({ route, navigation }) => {
+  console.log(route, "routeee");
+
   const mealId = route.params.mealId;
 
   const selectedMeal = MEALS.find((meal) => meal.id === mealId);
