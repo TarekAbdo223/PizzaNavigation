@@ -9,6 +9,15 @@ import { createDrawerNavigator } from "@react-navigation/drawer";
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
+
+function DrawerNavigator() {
+  return (
+    <Drawer.Navigator>
+      <Drawer.Screen name="Categories" component={CategoriesScreen} />
+      {/* <Drawer.Screen name="Settings" component={SettingsScreen} /> */}
+    </Drawer.Navigator>
+  );
+}
 export default function App() {
   return (
     <>
@@ -25,8 +34,8 @@ export default function App() {
           }}
         >
           <Stack.Screen
-            name="MealsCategories"
-            component={CategoriesScreen}
+            name="Drawer"
+            component={DrawerNavigator}
             options={{
               title: "All Categories",
             }}
